@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+
+    <div id="lightningout"></div>
+
+    <script src="https://my-lwc-plg-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
+    <script>
+      function init(){
+        $Lightning.use(
+          'c:test', // name of the Lightning app
+          function () {
+            // Callback once framework and app loaded
+            $Lightning.createComponent(
+              'c:aiweather', // top-level component of your app
+              {}, // attributes to set on the component when created
+              'lightningout', // the DOM location to insert the component
+              function (cmp) {
+                // callback when component is created and active on the page
+              }
+            );
+          },
+          'https://my-lwc-plg-dev-ed.my.site.com/aiweatherforcast' // Site endpoint
+        );
+      }
+    </script>
+  </body>
+</html>
